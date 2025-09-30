@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Typing Speed Test — Pro</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <div class="card">
+      <header class="card-head">
+        <div>
+          <h1 class="title">Typing Speed Test</h1>
+          <p class="subtitle">Practice accuracy and speed — track personal bests across difficulty levels.</p>
+        </div>
+
+        <div class="controls-top">
+          <label class="difficulty-label" for="difficulty">Difficulty</label>
+          <select id="difficulty" aria-label="Select difficulty">
+            <option value="easy">Easy</option>
+            <option value="medium" selected>Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+
+          <button id="themeToggle" class="theme-btn" aria-pressed="false" title="Toggle theme">🌙</button>
+        </div>
+      </header>
+
+      <section class="quote-area" id="quote" aria-live="polite"></section>
+
+      <div class="progress-wrap" aria-hidden="true">
+        <div id="progressBar" class="progress-bar"></div>
+      </div>
+
+      <label for="input" class="sr-only">Typing Input</label>
+      <textarea id="input" class="input-area" placeholder="Start typing here..." autocomplete="off" autocorrect="off" spellcheck="false" aria-label="Typing input"></textarea>
+
+      <div class="status-row">
+        <div class="status">
+          <span class="stat-icon">⏱</span>
+          <div><small>Time</small><strong id="timer">0 s</strong></div>
+        </div>
+        <div class="status">
+          <span class="stat-icon">⚡</span>
+          <div><small>Speed</small><strong id="wpm">0 WPM</strong></div>
+        </div>
+        <div class="status">
+          <span class="stat-icon">✅</span>
+          <div><small>Accuracy</small><strong id="accuracy">0%</strong></div>
+        </div>
+        <div class="status">
+          <span class="stat-icon">🏆</span>
+          <div><small>Best</small><strong id="best">0 WPM</strong></div>
+        </div>
+      </div>
+
+      <div class="card-foot">
+        <div class="foot-actions">
+          <button id="restart" class="btn ghost">🔁 Restart</button>
+          <button id="next" class="btn primary">➡️ Next Test</button>
+        </div>
+        <small class="hint">Tip: start typing to begin timer. Backspace allowed — accuracy updates in real time.</small>
+      </div>
+    </div>
+  </main>
+
+  <!-- Result Modal -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-card" role="document">
+      <h2>🎉 Test Completed</h2>
+      <div class="modal-stats">
+        <div><small>Time Taken</small><strong id="finalTime">0 s</strong></div>
+        <div><small>Speed</small><strong id="finalWpm">0 WPM</strong></div>
+        <div><small>Accuracy</small><strong id="finalAcc">0%</strong></div>
+      </div>
+      <div class="modal-actions">
+        <button id="modalClose" class="btn ghost">Close</button>
+        <button id="modalNext" class="btn primary">Next Test</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
